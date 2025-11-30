@@ -307,11 +307,11 @@ body {
         min-height: 300px;
     }
     .main-title {
-        font-size: 2rem;
+        font-size: 3rem;
     }
-    .description {
-        font-size: 0.95rem;
-    }
+        .description {
+            font-size: 0.95rem;
+        }
     .logo {
         font-size: 1.3rem;
     }

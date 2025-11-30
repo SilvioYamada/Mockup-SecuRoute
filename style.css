@@ -1,0 +1,330 @@
+/* Estilos principais do mockup SecuRoute */
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #6b21a8 0%, #8b5cf6 50%, #312e81 100%);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.scene {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.scene::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(26, 10, 46, 0.7) 0%, rgba(10, 5, 32, 0.85) 50%, rgba(0, 0, 0, 0.95) 100%);
+    z-index: 1;
+}
+
+.neon-light {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: float 8s ease-in-out infinite;
+    z-index: 2;
+}
+
+.light-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(138, 43, 226, 0.6) 0%, transparent 70%);
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.light-2 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.5) 0%, transparent 70%);
+    bottom: 20%;
+    right: 15%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(30px, -20px) scale(1.1); }
+    66% { transform: translate(-20px, 30px) scale(0.9); }
+}
+
+.laptop-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: zoomIn 3s ease-out forwards;
+    z-index: 3;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1.5) rotate(-5deg);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.laptop {
+    position: relative;
+    width: 1050px;
+    max-width: 96vw;
+    perspective: 1200px;
+}
+
+.laptop-screen {
+    width: 100%;
+    height: 700px;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+    border-radius: 12px 12px 0 0;
+    border: 8px solid #0a0a0a;
+    box-shadow: 
+        0 0 0 2px #1a1a1a,
+        0 30px 80px rgba(0, 0, 0, 0.8),
+        inset 0 0 100px rgba(138, 43, 226, 0.1);
+    transform: rotateX(5deg) rotateY(-3deg);
+    animation: screenGlow 2s ease-in-out 3s forwards;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes screenGlow {
+    to {
+        box-shadow: 
+            0 0 0 2px #1a1a1a,
+            0 30px 80px rgba(138, 43, 226, 0.3),
+            inset 0 0 100px rgba(138, 43, 226, 0.2);
+    }
+}
+
+.laptop-base {
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+}
+
+.screen-content {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: block;
+    opacity: 0;
+    animation: fadeInContent 2s ease-out 3.5s forwards;
+}
+
+@keyframes fadeInContent {
+    to { opacity: 1; }
+}
+
+.logo {
+    display: none;
+}
+
+    .main-title {
+        font-size: 3rem;
+    }
+
+.description {
+    font-size: 1.1rem;
+    color: #b4b4b4;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 5s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.brand-highlight {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.button-frame {
+    display: inline-block;
+    width: fit-content;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 5.5s forwards;
+}
+
+.interactive-button {
+    position: relative;
+    padding: 18px 40px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background: linear-gradient(135deg, #6b21a8 0%, #8b5cf6 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+    overflow: hidden;
+}
+
+.interactive-button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.interactive-button:hover::before {
+    opacity: 1;
+}
+
+.interactive-button::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #6b21a8 100%);
+    border-radius: 50px;
+    z-index: -1;
+    filter: blur(15px);
+    opacity: 0.6;
+    animation: buttonGlow 2s ease-in-out infinite;
+}
+
+@keyframes buttonGlow {
+    0%, 100% {
+        opacity: 0.6;
+        filter: blur(15px);
+    }
+    50% {
+        opacity: 1;
+        filter: blur(20px);
+    }
+}
+
+.interactive-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(139, 92, 246, 0.6);
+}
+
+.interactive-button:active {
+    transform: translateY(0);
+}
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.particle {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: rgba(186, 120, 255, 0.25);
+    border-radius: 50%;
+}
+.particle.up {
+    animation: particleFloat 10s linear infinite;
+}
+.particle.down {
+    animation: particleFloatDown 10s linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(120vh) translateX(0) scale(0.2);
+        opacity: 0;
+    }
+    15% {
+        transform: translateY(100vh) translateX(10px) scale(1);
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(100px) scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes particleFloatDown {
+    0% {
+        transform: translateY(-100px) translateX(0) scale(0.2);
+        opacity: 0;
+    }
+    15% {
+        transform: translateY(20vh) translateX(10px) scale(1);
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(120vh) translateX(100px) scale(1);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .laptop-screen {
+        height: 400px;
+    }
+    .screen-content {
+        padding: 0;
+    }
+    .iframe-full {
+        min-height: 300px;
+    }
+    .main-title {
+        font-size: 2rem;
+    }
+    .description {
+        font-size: 0.95rem;
+    }
+    .logo {
+        font-size: 1.3rem;
+    }
+}
+
+.iframe-full {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px 12px 0 0;
+    background: transparent;
+    min-height: 200px;
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SecuRoute - 3d Anmimation</title>
+    <title>SecuRoute - 3D Animation</title>
     <link rel="stylesheet" href="style.css">
     <meta property="og:image" content="img/thumb.jpg">
     <meta name="twitter:image" content="img/thumb.jpg">
@@ -22,7 +22,7 @@
             <div class="laptop">
                 <div class="laptop-screen">
                     <div class="screen-content">
-                        <iframe src="https://securoute.netlify.app/" class="iframe-full" allowfullscreen></iframe>
+                        <iframe src="https://lp-silvioyamada.netlify.app/" class="iframe-full" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div class="laptop-base"></div>
@@ -30,61 +30,6 @@
         </div>
     </div>
 
-    <script>
-        // Criar partículas flutuantes
-        const particlesContainer = document.getElementById('particles');
-        const particleCount = 30;
-
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            // Metade sobe, metade desce
-            if (i % 2 === 0) {
-                particle.className = 'particle up';
-            } else {
-                particle.className = 'particle down';
-            }
-            particle.style.left = Math.random() * 100 + '%';
-            // Distribui o ponto inicial entre 0vh e 100vh
-            particle.style.top = Math.random() * 100 + 'vh';
-            particle.style.opacity = '0'; // invisível antes da animação
-            particle.style.animationDelay = Math.random() * 10 + 's';
-            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-            particlesContainer.appendChild(particle);
-        }
-
-        // Adicionar interatividade ao botão
-        const button = document.querySelector('.interactive-button');
-        button.addEventListener('click', () => {
-            // Efeito de ripple
-            const ripple = document.createElement('span');
-            ripple.style.position = 'absolute';
-            ripple.style.width = ripple.style.height = '100px';
-            ripple.style.background = 'rgba(255, 255, 255, 0.5)';
-            ripple.style.borderRadius = '50%';
-            ripple.style.transform = 'translate(-50%, -50%) scale(0)';
-            ripple.style.animation = 'ripple 0.6s ease-out';
-            ripple.style.pointerEvents = 'none';
-            
-            const rect = button.getBoundingClientRect();
-            ripple.style.left = '50%';
-            ripple.style.top = '50%';
-            
-            button.appendChild(ripple);
-            
-            setTimeout(() => ripple.remove(), 600);
-        });
-
-        // Adicionar estilo para animação de ripple
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: translate(-50%, -50%) scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
